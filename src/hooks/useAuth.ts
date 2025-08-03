@@ -104,8 +104,6 @@ const useAuth = () => {
     navigate('/')
   }
 
-  // const isAuthenticated = !!user?.accessToken
-
   return { 
     user, 
     login, 

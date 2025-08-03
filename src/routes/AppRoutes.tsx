@@ -6,7 +6,7 @@ import ProtectedRoute from '@routes/ProtectedRoute';
 import HomePage from '@pages/Homepage';
 import { useAuth } from '@hooks/useAuth';
 import Login from '@pages/auth/login';
-import ListPage from '@pages/Posts/PostListPage';
+import ListPage from '@pages/Posts/ListPage';
 import DashboardHome from '@pages/DashboardHome';
 import RegisterPage from '@pages/auth/Register';
 const LoginRoute = () => {

@@ -1,69 +1,50 @@
-# React + TypeScript + Vite
+# Blog App — Frontend Developer Test
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive blog application built with **Vite + React + TypeScript**, featuring authentication, blog CRUD, Redux Toolkit state management, form validation, and modern UI using TailwindCSS.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
+- **Authentication**
+  - Login & Register forms with Yup validation
+  - JWT-based auth (token stored in localStorage)
+  - Protected routes (React Router + custom ProtectedRoute)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Blog Management**
+  - List, Create, Edit, Delete blog posts
+  - Redux Toolkit for global state management
+  - Toast notifications for all CRUD actions
+  - Delete confirmation modal with warning icon
+  - Form validation with Yup
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **UI/UX**
+  - TailwindCSS styling
+  - React Icons for visuals
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🛠 Tech Stack
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- **Frontend:** React 19, TypeScript, Vite
+- **Routing:** React Router v7
+- **State Management:** Redux Toolkit
+- **Forms & Validation:** React Hook Form, Yup
+- **UI:** TailwindCSS, React Icons
+- **Notifications:** React Toastify
+- **API:** [DummyJSON](https://dummyjson.com) (dummy API for CRUD demo)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 📦 Installation
+
+```bash
+# Clone repository
+git clone <repo-url>
+cd blog-app
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev

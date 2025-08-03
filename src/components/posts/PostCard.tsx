@@ -1,4 +1,3 @@
-// src/components/posts/PostsGrid.tsx
 import { type Post } from '@store/postsSlice'
 import ButtonCard from '@components/ButtonCard'
 import Spinner from '@components/Spinner'

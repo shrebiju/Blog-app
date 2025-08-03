@@ -5,8 +5,6 @@ interface ButtonCardProps {
   children: ReactNode;
   onClick?: () => void;
   type?: 'button' | 'submit' | 'reset';
-  // color?: 'primary' | 'secondary' | 'danger';
-  // size?: 'small' | 'medium' | 'large';
   color?: ColorVariant;
   size?: SizeVariant;
   className?: string;
@@ -24,19 +22,6 @@ const ButtonCard = ({
   loading = false,
   disabled = false,
 }: ButtonCardProps) => {
-  // const colorClasses = {
-  //   primary: 'bg-blue-600 hover:bg-blue-700 text-white',
-  //   secondary: 'bg-gray-200 hover:bg-gray-300 text-gray-800',
-  //   danger: 'bg-red-600 hover:bg-red-700 text-white',
-  // };
-
-  // const sizeClasses = {
-  //   small: 'px-3 py-1.5 text-sm',
-  //   medium: 'px-4 py-2 text-base',
-  //   large: 'px-6 py-3 text-lg',
-  // };
-  // const colorClasses = theme.colors[color];
-  // const sizeClasses = theme.sizes[size];
 
   return (
     <button
@@ -50,7 +35,6 @@ const ButtonCard = ({
         ${disabled || loading ? 'opacity-70 cursor-not-allowed' : ''}
         ${className}
       `}
-
     >
       {loading ? (
         <span className="flex items-center justify-center gap-2">
