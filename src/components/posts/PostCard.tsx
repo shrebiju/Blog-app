@@ -1,7 +1,7 @@
 import { type Post } from '@store/postsSlice'
 import ButtonCard from '@components/ButtonCard'
 import Spinner from '@components/Spinner'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import ConfirmModal from '@components/ConfirmModal'
 import { useState } from 'react'
 import { useAuth } from '@hooks/useAuth'
@@ -72,42 +72,68 @@ const PostCard = ({
       {posts.length === 0 ? (
         <p className="text-center text-gray-500">No posts available</p>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {posts.map((post) => (
-            <div 
-              key={post.id}
-              className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
-            >
-              <div className="p-5">
-                <h2 className="text-xl font-semibold mb-2 text-gray-800 line-clamp-2">
-                  {post.title}
-                </h2>
-                <p className="text-gray-600 text-sm line-clamp-3">
-                  {post.body}
-                </p>
+        <>
 
-                {isAuthenticated && onEdit && (
-                  <div className="flex gap-2 mt-4">
-                    <ButtonCard
-                      onClick={() => onEdit(post)}
-                      size="small"
-                      color="primary"
+          {!isAuthenticated && (
+            <div className="bg-blue-50 border-l-4 border-blue-500 p-4 mb-6 rounded">
+              <div className="flex items-start">
+                <div className="flex-shrink-0">
+                  <svg className="h-5 w-5 text-blue-500" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2h-1V9z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <div className="ml-3">
+                  <p className="text-sm text-blue-700">
+                    Want to create or edit posts?{' '}
+                    <Link 
+                      to="/login" 
+                      className="font-medium text-blue-700 hover:text-blue-600 underline"
                     >
-                      Edit
-                    </ButtonCard>
-                    <ButtonCard
-                      onClick={() => handleDeleteClick(post.id)}
-                      size="small"
-                      color="danger"
-                    >
-                      Delete
-                    </ButtonCard>
-                  </div>
-                )}
+                      Login to your account
+                    </Link>
+                  </p>
+                </div>
               </div>
             </div>
-          ))}
-        </div>
+          )}
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {posts.map((post) => (
+              <div 
+                key={post.id}
+                className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+              >
+                <div className="p-5">
+                  <h2 className="text-xl font-semibold mb-2 text-gray-800 line-clamp-2">
+                    {post.title}
+                  </h2>
+                  <p className="text-gray-600 text-sm line-clamp-3">
+                    {post.body}
+                  </p>
+
+                  {isAuthenticated && onEdit && (
+                    <div className="flex gap-2 mt-4">
+                      <ButtonCard
+                        onClick={() => onEdit(post)}
+                        size="small"
+                        color="primary"
+                      >
+                        Edit
+                      </ButtonCard>
+                      <ButtonCard
+                        onClick={() => handleDeleteClick(post.id)}
+                        size="small"
+                        color="danger"
+                      >
+                        Delete
+                      </ButtonCard>
+                    </div>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </>
       )}
 
       {isAuthenticated && (
